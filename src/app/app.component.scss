@@ -1,0 +1,75 @@
+/* Color Grid */
+$bg-lightGray: #fcfcfc;
+$blue: #0654ae;
+$darkBlue: #202e5d;
+$lightGray: #b2b2b2;
+$gray: #707070;
+$darkGray: #414141;
+$white: #fff;
+
+/* Header */
+
+.bg-lightGray{
+  background-color: $bg-lightGray;
+}
+
+
+/*  Style Footer  */
+
+.title-footer-redes {
+  font-size: 24px;
+  color: $lightGray;
+  text-transform: uppercase;
+}
+
+.title-footer {
+  font-size: 32px;
+  color: $blue;
+  text-transform: uppercase;
+}
+.text-link {
+  color: $darkGray;
+  font-size: 24px;
+  display: block;
+  text-transform: initial;
+}
+.hr-top {
+  border-top: solid 1px $gray;
+}
+.text-footer {
+  color: $gray;
+  font-size: 24px;
+  padding-top: 30px;
+}
+.text-addresses {
+  color: $darkGray;
+  font-size: 16px;
+}
+
+/* Style Animation Social */
+
+@keyframes social {
+  0% {
+    background-color: $white;
+  }
+  100% {
+    background-color: $blue;
+  }
+}
+.social-icons a {
+  display: inline-block;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: $blue;
+  color: $white;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 3.5rem;
+  margin-right: 1rem;
+  animation-name: social;
+  animation-duration: 4s;
+  &:hover {
+    background-color: $darkBlue;
+  }
+}

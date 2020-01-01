@@ -1,0 +1,163 @@
+<!-- Header -->
+<header class="bg-lightGray py-5 mb-5">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <img
+        src="assets/img/logo-topo.png"
+        alt="Logo"
+      />
+      </div>
+    </div>
+  </div>
+</header>
+
+<main role="main">
+  <section>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <h1 class="display-4 text-dark mt-5 mb-2  ">
+          Formulário
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-8 mb-5">
+          <h2>DADOS PESSOAIS</h2>
+          <hr />
+          <form method="post" #frm="ngForm" (ngSubmit)="criar(frm)">
+
+            <div class="form-row">
+              <div class="form-group col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="inputNome"
+                  id="inputNome"
+                  placeholder="Nome"
+                />
+              </div>
+              <div class="form-group col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="inputUltimoNome"
+                  id="inputUltimoNome"
+                  placeholder="Último Nome"
+                />
+              </div>
+              <div class="form-group col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="inputCPF"
+                  id="inputCPF"
+                  placeholder="CPF"
+                />
+              </div>
+              <div class="form-group col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="inputDataDeNascimento"
+                  id="inputDataDeNascimento"
+                  placeholder="Data De Nascimento"
+                />
+              </div>
+              <div class="form-group col-sm-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="inputEmail"
+                  id="inputEmail"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="checkbox">
+                <label
+                  ><input type="checkbox" value="1" />Adicionar
+                  acompanhante</label
+                >
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="frm.invalid"
+            >
+              Enviar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<section>
+  <div class="py-5 container hr-top">
+    <div class="row justify-content-md-center">
+      <div class="col-lg-3 col-md-6 mb-4">
+        <img
+          class="card-img-top"
+          src="assets/img/logo-footer.png"
+          alt="Logo"
+        />
+        <p class="text-addresses">Street addresses: 455Mount</p>
+        <p class="text-addresses">Eden Road, Mount Eden</p>
+        <p class="text-addresses">Aucklan - Postcodes: 5022</p>
+        <h4 class="py-3 title-footer-redes">Nossas Redes</h4>
+        <div class="social-icons">
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h4 class="title-footer">Sobre Nós</h4>
+        <a href="#" class="text-link">Perfil</a>
+        <a href="#" class="text-link">Sobre</a>
+        <a href="#" class="text-link">Contato</a>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h4 class="title-footer">Rede Sociais</h4>
+        <a href="#" class="text-link">Twitter</a>
+        <a href="#" class="text-link">Instagram</a>
+        <a href="#" class="text-link">Linkedin</a>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h4 class="title-footer">Contato</h4>
+        <a href="#" class="text-link">Fac</a>
+        <a href="#" class="text-link">Sitemap</a>
+        <a href="#" class="text-link">Dúvidas</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="mx-5 p-5">
+  <div class="container hr-top d-flex justify-content-between">
+    <div class="row">
+      <p class="text-footer">
+        Contact US
+      </p>
+    </div>
+    <div class="row">
+      <p class="text-footer">
+        Copyright ©2019, Template
+      </p>
+    </div>
+  </div>
+  <!-- /.container -->
+</footer>
