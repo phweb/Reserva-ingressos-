@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
     });
   }
 
+  mostrarAcompanhate: boolean = false;
+
   enviar() {
     this.service.buscarCep(this.formulario.value).subscribe(resposta => {
       this.ingressos.push(resposta);
