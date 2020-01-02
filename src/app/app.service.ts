@@ -15,7 +15,7 @@ export class AppService {
     return this.http.get<Array<any>>(this.urlApiBuscaCep);
   }
 
-  criar(cep: any) {
+  buscarCep(cep: any) {
     return this.http.post(this.urlApiBuscaCep, cep);
   }
 }

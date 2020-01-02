@@ -1,6 +1,13 @@
 {
   "name": "reserva-ingressos",
-  "version": "1.0",
+  "description": "Reserva ingressos para pré estreia de filmes",
+  "version": "0.1.0",
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phweb/Reserva-ingressos-.git"
+  },
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

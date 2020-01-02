@@ -16,7 +16,7 @@ $white: #fff;
 /* Form */
 
 .form-control{
-  border-radius: 0rem; 
+  border-radius: 0rem;
   padding: 1.5rem .75rem;
 }
 .valor-ingresso{
@@ -33,26 +33,23 @@ $white: #fff;
   font-weight: bold;
   font-size: 18px;
 }
-.form-select {   
-   width:250px;  
-     overflow:hidden; 
+.form-select {
+   width:250px;
+     overflow:hidden;
     }
-.form-select select {     
-    background-position: 205px center;  
-    width: 350px; 
+.form-select select {
+    background-position: 205px center;
+    width: 350px;
     height:50px;
-    font-family:Arial, Helvetica, sans-serif; 
-    font-size:18px; 
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:18px;
     padding:13px 20px 13px 12px;
-    text-indent: 0.01px;     
-    text-overflow: "";  
+    text-indent: 0.01px;
+    text-overflow: "";
     select::-ms-expand {
       display: none;
-    } 
+    }
   }
-
-
-
 
 .btn-enviar{
   transition: background-color 0.2s ease;
@@ -70,6 +67,13 @@ $white: #fff;
     background-color: $darkBlue;
   }
 }
+
+/* form validation */
+
+.ng-invalid.ng-touched:not(form){
+  border: 1px solid red;
+}
+
 
 /* Style Animation Social */
 
