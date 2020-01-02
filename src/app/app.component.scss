@@ -13,7 +13,91 @@ $white: #fff;
   background-color: $bg-lightGray;
 }
 
+/* Form */
 
+.form-control{
+  border-radius: 0rem; 
+  padding: 1.5rem .75rem;
+}
+.valor-ingresso{
+  color: $blue;
+  font-size: 16px;
+  font-weight: bold;
+}
+.font-weight-bold-total{
+  font-weight: bold;
+  font-size: 18px;
+}
+.total-ingresso{
+  color: $blue;
+  font-weight: bold;
+  font-size: 18px;
+}
+.form-select {   
+   width:250px;  
+     overflow:hidden; 
+    }
+.form-select select {     
+    background-position: 205px center;  
+    width: 350px; 
+    height:50px;
+    font-family:Arial, Helvetica, sans-serif; 
+    font-size:18px; 
+    padding:13px 20px 13px 12px;
+    text-indent: 0.01px;     
+    text-overflow: "";  
+    select::-ms-expand {
+      display: none;
+    } 
+  }
+
+
+
+
+.btn-enviar{
+  transition: background-color 0.2s ease;
+  background-color: #0654ae;
+  padding: 17px 70px;
+  font-size: 16px;
+  cursor: pointer;
+  max-width: 300px;
+  display: block;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  border: none;
+  &:hover {
+    background-color: $darkBlue;
+  }
+}
+
+/* Style Animation Social */
+
+@keyframes social {
+  0% {
+    background-color: $white;
+  }
+  100% {
+    background-color: $blue;
+  }
+}
+.social-icons a {
+  display: inline-block;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: $blue;
+  color: $white;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 3.5rem;
+  margin-right: 1rem;
+  animation-name: social;
+  animation-duration: 4s;
+  &:hover {
+    background-color: $darkBlue;
+  }
+}
 /*  Style Footer  */
 
 .title-footer-redes {
@@ -46,30 +130,3 @@ $white: #fff;
   font-size: 16px;
 }
 
-/* Style Animation Social */
-
-@keyframes social {
-  0% {
-    background-color: $white;
-  }
-  100% {
-    background-color: $blue;
-  }
-}
-.social-icons a {
-  display: inline-block;
-  height: 3.5rem;
-  width: 3.5rem;
-  background-color: $blue;
-  color: $white;
-  border-radius: 100%;
-  text-align: center;
-  font-size: 1.5rem;
-  line-height: 3.5rem;
-  margin-right: 1rem;
-  animation-name: social;
-  animation-duration: 4s;
-  &:hover {
-    background-color: $darkBlue;
-  }
-}
