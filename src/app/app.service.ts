@@ -1,21 +1,19 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AppService {
+  reserva = "http://localhost/reserva";
 
-  urlApiBuscaCep = 'http://viacep.com.br/ws/71725206/json/';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  listar() {
-    return this.http.get<Array<any>>(this.urlApiBuscaCep);
-  }
-
-  buscarCep(cep: any) {
-    return this.http.post(this.urlApiBuscaCep, cep);
+  enviarCompra(formulario: any) {
+    var reqHeader = new HttpHeaders({
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + "#ASDFGW#ERWQERTRYT#%$%$@#$%==."
+    });
+    return this.http.post(this.reserva, { headers: reqHeader }, formulario);
   }
 }

@@ -27,7 +27,7 @@
           <div class="bg-light col-sm-12 p-4 mb-5">
             <h5>DADOS PESSOAIS</h5>
           </div>
-          <form method="post"  (ngSubmit)="enviar()" [formGroup]="formulario">
+          <form method="post" (ngSubmit)="enviar(formulario)" [formGroup]="formulario">
             <div class="form-row">
               <div class="form-group col-sm-6">
                 <input
@@ -71,7 +71,7 @@
               </div>
               <div class="form-group col-sm-12">
                 <input
-                  type="text"
+                  type="email"
                   class="form-control"
                   name="inputEmail"
                   id="inputEmail"
@@ -83,65 +83,82 @@
                 <div class="bg-light col-sm-12 p-4 mb-5">
                   <h5>ACOMPANHATE 1</h5>
                 </div>
-                  <div class="form-row">
-                    <div class="form-group col-sm-6">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="inputNome"
-                        id="inputNome"
-                        placeholder="Primeiro Nome"
-                        formControlName="nome"
-                      />
-                    </div>
-                    <div class="form-group col-sm-6">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="inputUltimoNome"
-                        id="inputUltimoNome"
-                        placeholder="Último Nome"
-                        formControlName="ultimoNome"
-                      />
-                    </div>
-                    <div class="form-group col-sm-6">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="inputCPF"
-                        id="inputCPF"
-                        placeholder="CPF"
-                        formControlName="cpf"
-                      />
-                    </div>
-                    <div class="form-group col-sm-6">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="inputDataDeNascimento"
-                        id="inputDataDeNascimento"
-                        placeholder="Data de Nascimento"
-                        formControlName="dataDeNacimento"
-                      />
-                    </div>
-                    <div class="form-group col-sm-12">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="inputEmail"
-                        id="inputEmail"
-                        placeholder="Email"
-                        formControlName="email"
-                      />
-                    </div>
-              </div>
+                <div class="form-row">
+                  <div class="form-group col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="inputNomeAcompanhante"
+                      id="inputNomeAcompanhante"
+                      placeholder="Primeiro Nome"
+                      formControlName="nomeAcompanhante"
+                    />
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="inputUltimoNomeAcompanhante"
+                      id="inputUltimoNomeAcompanhante"
+                      placeholder="Último Nome"
+                      formControlName="ultimoNomeAcompanhante"
+                    />
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="inputCPFAcompanhante"
+                      id="inputCPFAcompanhante"
+                      placeholder="CPF"
+                      formControlName="cpfAcompanhante"
+                    />
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="inputDataDeNascimentoAcompanhante"
+                      id="inputDataDeNascimentoAcompanhante"
+                      placeholder="Data de Nascimento"
+                      formControlName="dataDeNacimentoAcompanhante"
+                    />
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="inputEmailAcompanhante"
+                      id="inputEmailAcompanhante"
+                      placeholder="Email"
+                      formControlName="emailAcompanhante"
+                    />
+                  </div>
+                </div>
               </div>
               <div class="form-group col-sm-12 checkbox">
                 <label
-                  ><input type="checkbox" [checked]="mostrarAcompanhate"
-                  (change)="mostrarAcompanhate = !mostrarAcompanhate" value="1" /> Adicionar
-                  acompanhante</label
+                  ><input
+                    type="checkbox"
+                    [checked]="mostrarAcompanhate"
+                    (change)="mostrarAcompanhate = !mostrarAcompanhate"
+                    value="1"
+                  />
+                  Adicionar acompanhante</label
                 >
+              </div>
+              <div class="form-group col-sm-12 checkbox">
+                <label for="Filmes">Filmes em Cartaz</label>
+                <select
+                  name="listaFilmes"
+                  id="listaFilmes"
+                  [(ngModel)]="Filme" [ngModelOptions]="{standalone: true}"
+                  class="form-control"
+                >
+                  <option *ngFor="let lista of filmes" [value]="lista.id">{{
+                    lista.nome
+                  }}</option>
+                </select>
               </div>
               <div class="form-group col-sm-12 checkbox">
                 <h4>DADOS DA ENTREGA</h4>
@@ -153,7 +170,7 @@
                   name="inputCEP"
                   id="inputCEP"
                   placeholder="CEP"
-                  formControlName="cep"
+                  formControlName="cep" (blur)="consultaCep($event.target.value)"
                 />
               </div>
               <div class="form-group col-sm-12">
@@ -167,12 +184,20 @@
                 />
               </div>
               <div class="form-group col-sm-6 form-select">
-                <select class="form-control" id="SelectPais" formControlName="pais">
+                <select
+                  class="form-control"
+                  id="SelectPais"
+                  formControlName="pais"
+                >
                   <option>País</option>
                 </select>
               </div>
               <div class="form-group col-sm-6 form-select">
-                <select class="form-control" id="SelectEstado" formControlName="estado">
+                <select
+                  class="form-control"
+                  id="SelectEstado"
+                  formControlName="estado"
+                >
                   <option>Estado</option>
                 </select>
               </div>
@@ -197,8 +222,12 @@
                 />
               </div>
             </div>
-            <div class="form-group col-sm-12 justify-content-end">
-              <button type="submit" class="btn-enviar" [disabled]="formulario.invalid">
+            <div class="p-0 form-group col-sm-12 d-flex justify-content-end">
+              <button
+                type="submit"
+                class="btn-enviar"
+                [disabled]="formulario.invalid"
+              >
                 Enviar
               </button>
             </div>
