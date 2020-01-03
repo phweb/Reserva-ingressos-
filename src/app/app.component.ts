@@ -4,7 +4,6 @@ import { Filme } from "../app/models/filme";
 import { HttpClient } from "@angular/common/http";
 import { AppService } from "./app.service";
 
-
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -45,26 +44,35 @@ export class AppComponent implements OnInit {
       emailAcompanhante: [null, Validators.required, Validators.email],
       cep: [null, Validators.required],
       endereco: [null, Validators.required],
-      pais: [null, Validators.required],
+      bairro: [null, Validators.required],
       cidade: [null, Validators.required],
       estado: [null, Validators.required],
       telefone: [null, Validators.required]
     });
   }
 
-  consultaCEP(cep) {
-    //Nova variavel "cep" somente com digitos.
+  consultaCEP(cep, formulario) {
+    // Nova variável "cep" somente com dígitos.
     cep = cep.replace(/\D/g, "");
-    // Verifica se campo cep possui valor informado
-    if (cep != "") {
-      // Expressão regular para validar o cep
-      var validaCep = /^[0-9]{8}$/;
-      if (validaCep.test(cep)) {
-        this.http
-          .get(`http://viacep.com.br/ws/${cep}/json/`);
 
-      }
+    if (cep != null && cep !== "") {
+      this.service
+        .consultaCEP(cep)
+        .subscribe(dados => this.populaDadosForm(dados, formulario));
     }
+  }
+
+  populaDadosForm(dados, formulario) {
+    formulario.form.patchValue({
+      endereco: {
+        endereco: dados.logradouro,
+        // cep: dados.cep,
+        //complemento: dados.complemento,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        estado: dados.uf
+      }
+    });
   }
 
   enviar() {
