@@ -51,10 +51,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  consultaCEP(cep, formulario) {
-    // Nova variável "cep" somente com dígitos.
-    cep = cep.replace(/\D/g, "");
-
+  consultaCepEndereco(cep, formulario) {
     if (cep != null && cep !== "") {
       this.service
         .consultaCEP(cep)
@@ -62,16 +59,14 @@ export class AppComponent implements OnInit {
     }
   }
 
-  populaDadosForm(dados, formulario) {
-    formulario.form.patchValue({
-      endereco: {
-        endereco: dados.logradouro,
-        // cep: dados.cep,
-        //complemento: dados.complemento,
-        bairro: dados.bairro,
-        cidade: dados.localidade,
-        estado: dados.uf
-      }
+  populaDadosForm(dados, form) {
+    this.formulario = this.formBuilder.group({
+      endereco: dados.logradouro,
+      // cep: dados.cep,
+      //complemento: dados.complemento,
+      bairro: dados.bairro,
+      cidade: dados.localidade,
+      estado: dados.uf
     });
   }
 
