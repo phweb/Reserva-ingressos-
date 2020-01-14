@@ -1,4 +1,5 @@
 export interface Filme {
   id: number;
-  nome: string;
+  poster_path: string;
+  original_title: string;
 }

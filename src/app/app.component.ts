@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Filme } from "../app/models/filme";
 import { HttpClient } from "@angular/common/http";
 import { AppService } from "./app.service";
+import { MoviesService } from "./shared/service/moviedb.service";
 
 @Component({
   selector: "app-root",
@@ -14,20 +15,18 @@ export class AppComponent implements OnInit {
   formulario: FormGroup;
 
   mostrarAcompanhate: boolean = false;
-  filmes: Filme[] = [
-    { id: 1, nome: "Frozen 2" },
-    { id: 2, nome: "Star Wars - The Rise of Skywalker" },
-    { id: 3, nome: "Avengers - Infinity War" }
-  ];
+  filmes: any;
 
   constructor(
     private service: AppService,
+    private movieservice: MoviesService,
     private formBuilder: FormBuilder,
     private http: HttpClient
   ) {}
 
   ngOnInit() {
     this.validarFormulario();
+    this.consultaFilmes();
   }
 
   validarFormulario() {
@@ -50,6 +49,13 @@ export class AppComponent implements OnInit {
       telefone: [null, Validators.required]
     });
   }
+consultaFilmes(){
+  this.movieservice
+  .consultaApiFilmes()
+  .subscribe(dados => {this.filmes = dados;});
+
+}
+
 
   consultaCepEndereco(cep, formulario) {
     if (cep != null && cep !== "") {

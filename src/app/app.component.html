@@ -8,7 +8,7 @@
     </div>
   </div>
 </header>
-
+<app-header></app-header>
 <!-- Formulário -->
 <main role="main">
   <section>
@@ -156,12 +156,12 @@
                 <select
                   name="listaFilmes"
                   id="listaFilmes"
-                  [(ngModel)]="Filme"
+                  [(ngModel)]="filmes"
                   [ngModelOptions]="{ standalone: true }"
                   class="form-control"
                 >
-                  <option *ngFor="let lista of filmes" [value]="lista.id">{{
-                    lista.nome
+                  <option *ngFor="let lista of filmes.results" [value]="lista.id">{{
+                    lista.original_title
                   }}</option>
                 </select>
               </div>
@@ -259,13 +259,15 @@
           <div class="bg-light col-sm-12 p-4 mb-5">
             <h5>SEU INGRESSOS</h5>
           </div>
-          <div class="col-sm-12 mb-5 d-flex">
-            <div class="col-sm-5">
-              <img src="http://placehold.it/100x100" alt="Filme" />
+          <div class="col-sm-12 mb-5 d-flex"  >
+            <div class="col-sm-5" [(ngModel)]="filmes">
+              <img src="https://image.tmdb.org/t/p/w200{{filmes.results[0].poster_path}}" alt="Filme" />
             </div>
-            <div class="col-sm-8">
+          </div>
+          <div class="col-sm-12 mb-5 d-flex"  >
+            <div class="col-sm-8"[(ngModel)]="filmes">
               <p>Ingresso</p>
-              <p>Filme: O mochileiro das Galáxias</p>
+              <p >Filme: {{filmes.results[0].original_title}}</p>
               <p>Ingresso</p>
               <p class="valor-ingresso">R$20,00</p>
             </div>

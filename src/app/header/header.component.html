@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="float-right">
+    <a class="item" *ngIf="language != 'pt'" (click)="changeLanguage('pt')">
+      <button type="button" class="btn btn-secondary float-right">
+        Português
+      </button>
+    </a>
+    <a class="item" *ngIf="language == 'pt'" (click)="changeLanguage('en')">
+      <button type="button" class="btn btn-secondary bg-primary">Inglês</button>
+    </a>
+  </div>
+  <a class="float-right p-2" routerLink="/home">
+    {{ title }}
+  </a>
+</div>
