@@ -20,6 +20,9 @@ export class MoviesService {
       `https://api.themoviedb.org/3/movie/upcoming?api_key=${this.apiKey}&language=${this.language}`
     );
   }
+
+
+
   changeLanguage(lang: string) {
     localStorage.setItem('lang', lang);
     this.language = lang;

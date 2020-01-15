@@ -7,7 +7,7 @@ import { MoviesService } from "../shared/service/moviedb.service";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  title = "Idioma Filme";
+  title = "Clique Para Alterar o Idioma Filme";
   language: string;
 
   constructor(private moviesService: MoviesService) {}

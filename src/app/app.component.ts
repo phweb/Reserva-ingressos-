@@ -15,8 +15,7 @@ export class AppComponent implements OnInit {
   formulario: FormGroup;
 
   mostrarAcompanhate: boolean = false;
-  filmes: any;
-
+  filmes: any = [];
   constructor(
     private service: AppService,
     private movieservice: MoviesService,
@@ -49,13 +48,14 @@ export class AppComponent implements OnInit {
       telefone: [null, Validators.required]
     });
   }
-consultaFilmes(){
-  this.movieservice
-  .consultaApiFilmes()
-  .subscribe(dados => {this.filmes = dados;});
-
+  async consultaFilmes(){
+    try {
+      const resultado = await this.movieservice
+      .consultaApiFilmes()
+      .subscribe(dados => {this.filmes = dados;});
+      return resultado
+    } catch (err) { return 'erro na chamada api filmes' }
 }
-
 
   consultaCepEndereco(cep, formulario) {
     if (cep != null && cep !== "") {

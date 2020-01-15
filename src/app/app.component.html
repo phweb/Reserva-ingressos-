@@ -235,7 +235,7 @@
               </div>
               <div class="form-group col-sm-12">
                 <input
-                  type="text"
+                  type="tel"
                   class="form-control"
                   name="inputTelefone"
                   id="inputTelefone"
@@ -260,15 +260,14 @@
             <h5>SEU INGRESSOS</h5>
           </div>
           <div class="col-sm-12 mb-5 d-flex"  >
-            <div class="col-sm-5" [(ngModel)]="filmes">
+            <div class="col-sm-5" >
               <img src="https://image.tmdb.org/t/p/w200{{filmes.results[0].poster_path}}" alt="Filme" />
             </div>
           </div>
           <div class="col-sm-12 mb-5 d-flex"  >
-            <div class="col-sm-8"[(ngModel)]="filmes">
+            <div class="col-sm-8">
               <p>Ingresso</p>
-              <p >Filme: {{filmes.results[0].original_title}}</p>
-              <p>Ingresso</p>
+              <p >Filme: {{filmes.results[0].title}}</p>
               <p class="valor-ingresso">R$20,00</p>
             </div>
           </div>
